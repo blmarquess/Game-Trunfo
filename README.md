@@ -119,7 +119,7 @@ O tema do seu baralho é **livre**, então explore a sua criatividade! Mas use s
 
   - Serão dois dias de projeto.
   
-  - Data de entrega para avaliação final do projeto: `DD/MM/YYYY - 14:00h`.
+  - Data de entrega para avaliação final do projeto: `15/11/2021 - 14:00h`.
 
 ---
 # Observações técnicas
