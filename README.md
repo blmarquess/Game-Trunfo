@@ -174,9 +174,9 @@ No caso acima, temos duas possibilidades, ativo ou não, ou seja, duas renderiza
 ## Antes de começar a desenvolver
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-0x-project-tryunfo.git`.
+  * `git clone git@github.com:tryber/sd-016-b-project-tryunfo.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-0x-project-tryunfo`
+    * `cd sd-016-b-project-tryunfo`
 
 2. Instale as dependências e inicialize o projeto
   * Instale as dependências:
