@@ -13,6 +13,7 @@ export default class Card extends React.Component {
       cardRare,
       cardTrunfo,
     } = this.props;
+
     return (
       <div className="flex-col m-auto">
         <section>
@@ -27,6 +28,26 @@ export default class Card extends React.Component {
           <p data-testid="description-card">
             { cardDescription }
           </p>
+        </section>
+        <section>
+          <span data-testid="rare-card">{ cardRare }</span>
+        </section>
+        <section id="atributs">
+          <div>
+            <span id="att1">Atributs 01 </span>
+            <span data-testid="attr1-card">{ cardAttr1 }</span>
+          </div>
+          <div>
+            <span id="att2">Atributs 02 </span>
+            <span data-testid="attr2-card">{ cardAttr2 }</span>
+          </div>
+          <div>
+            <span id="att3">Atributs 03 </span>
+            <span data-testid="attr3-card">{ cardAttr3 }</span>
+          </div>
+        </section>
+        <section>
+          { supertrunfo(cardTrunfo) }
         </section>
       </div>
     );
