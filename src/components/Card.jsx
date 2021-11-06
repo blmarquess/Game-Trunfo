@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class Card extends React.Component {
+export default class Card extends Component {
   render() {
     const {
       cardName,
@@ -22,7 +22,7 @@ export default class Card extends React.Component {
           </span>
         </section>
         <section className="flex-col p-4 w-full">
-          <img src={ cardImage } alt="ImagemTrunfo" data-testid="image-card" />
+          <img src={ cardImage } alt={ cardName } data-testid="image-card" />
         </section>
         <section>
           <p data-testid="description-card">
@@ -46,9 +46,8 @@ export default class Card extends React.Component {
             <span data-testid="attr3-card">{ cardAttr3 }</span>
           </div>
         </section>
-        <section>
-          { supertrunfo(cardTrunfo) }
-        </section>
+        {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
+
       </div>
     );
   }
