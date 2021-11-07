@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const spanNum = 'bg-green-900 text-white rounded-r-xl -m-3 py-3 px-8 min-w-8';
+const spanNum = 'bg-green-900 text-white rounded-r-xl -m-3 p-3 w-20';
 const labelLevel = 'bg-gray-100 flex justify-between rounded-xl m-3 p-3';
+const raridade = `border-2 rounded-xl text-center flex items-center shadow-lg
+justify-center text-white bg-green-800 font-black text-xl w-40 h-12 -mt-72 mx-96`;
+const container = `flex-col min-w-1/5 max-w-1/5 p-3 border-8 rounded-3xl shadow-lg
+border-blue-50 bg-green-700 box-content grid grid-cols-1`;
+const topCard = 'rounded-t-xl bg-green-900 text-right p-4 flex items-end justify-between';
 
 export default class Card extends Component {
   render() {
@@ -18,14 +23,12 @@ export default class Card extends Component {
     } = this.props;
 
     return (
-      <div
-        className="
-        flex-col min-w-1/5 max-w-1/5 p-3 border-8 rounded-3xl
-        border-blue-50 bg-green-700 box-content grid grid-cols-1
-        "
-      >
-        <section className="rounded-t-xl bg-green-900 text-right p-2">
-          <span className="text-4xl text-right text-white p-4" data-testid="name-card">
+      <div className={ container }>
+        <section className={ topCard }>
+          <div className="text-4xl text-left">
+            {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
+          </div>
+          <span className="text-4xl text-right text-white" data-testid="name-card">
             { cardName }
           </span>
         </section>
@@ -33,8 +36,8 @@ export default class Card extends Component {
           <img src={ cardImage } alt={ cardName } data-testid="image-card" />
         </section>
         <section
-          className="p-4 w-full -mt-12 bg-green-700
-          bg-clip-text transform -skew-y-6 h-24 text-2xl"
+          className="px-4 py-2 w-full -mt-20 mb-2 bg-green-700
+          bg-clip-text transform -skew-y-6 h-24 text-md flex-grow"
         >
           <p data-testid="description-card">
             { cardDescription }
@@ -58,7 +61,11 @@ export default class Card extends Component {
               <span data-testid="attr3-card" className={ spanNum }>{ cardAttr3 }</span>
             </div>
           </section>
-          {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
+          <section>
+            <div className={ raridade }>
+              <span id="raridade" name="cardRare">{ cardRare }</span>
+            </div>
+          </section>
         </section>
       </div>
     );
