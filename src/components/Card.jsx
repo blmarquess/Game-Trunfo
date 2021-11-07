@@ -15,9 +15,9 @@ export default class Card extends Component {
     } = this.props;
 
     return (
-      <div className="flex-col m-auto">
+      <div className="flex-col w-full p-10">
         <section>
-          <span className="text-lg text-green-900" data-testid="name-card">
+          <span className="text-2xl text-right text-white p-4" data-testid="name-card">
             { cardName }
           </span>
         </section>
@@ -46,6 +46,7 @@ export default class Card extends Component {
             <span data-testid="attr3-card">{ cardAttr3 }</span>
           </div>
         </section>
+
         {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
 
       </div>

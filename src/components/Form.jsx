@@ -19,11 +19,14 @@ export default class Form extends React.Component {
     } = this.props;
 
     return (
-      <form className="flex-col p-4">
+      <form className="p-10 flex-col">
+        <div className="text-center m-10">
+          <strong className="text-4xl">Adicionar nova carta</strong>
+        </div>
         <label htmlFor="cardName">
-          Nome:
+          <strong>Nome:</strong>
           <input
-            className="p-2 w-full rounded-md bg-white mb-2"
+            className="p-3 w-full border-b-2 border-gray-700 bg-white mb-2"
             id="cardName"
             name="cardName"
             value={ cardName }
@@ -33,9 +36,9 @@ export default class Form extends React.Component {
           />
         </label>
         <label htmlFor="cardDescription">
-          Descrição:
+          <strong>Descrição:</strong>
           <textarea
-            className="p-2 w-full rounded-md bg-white mb-2"
+            className="p-2 w-full border-b-2 border-gray-700 bg-white mb-2"
             id="cardDescription"
             name="cardDescription"
             value={ cardDescription }
@@ -43,22 +46,22 @@ export default class Form extends React.Component {
             data-testid="description-input"
           />
         </label>
-        <label htmlFor="Attr1">
-          Attr1:
+        <label htmlFor="Attr1" className="flex items-center py-2">
+          <strong>Attr1:</strong>
           <input
-            className="p-2 w-full rounded-md bg-white mb-2"
-            id="Attr1:"
-            name="Attr1:"
+            className="p-3 ml-4 w-full border-2 border-gray-700 bg-white mb-2"
+            id="Attr1"
+            name="Attr1"
             value={ cardAttr1 }
             onChange={ onInputChange }
             data-testid="attr1-input"
             type="number"
           />
         </label>
-        <label htmlFor="Attr2">
-          Attr2:
+        <label htmlFor="Attr2" className="flex items-center py-2">
+          <strong>Attr2:</strong>
           <input
-            className="p-2 w-full rounded-md bg-white mb-2"
+            className="p-3 ml-4 w-full border-2 border-gray-700 bg-white mb-2"
             id="Attr2"
             name="Attr2"
             value={ cardAttr2 }
@@ -67,10 +70,10 @@ export default class Form extends React.Component {
             type="number"
           />
         </label>
-        <label htmlFor="Attr3">
-          Attr3:
+        <label htmlFor="Attr3" className="flex items-center py-2">
+          <strong>Attr3:</strong>
           <input
-            className="p-2 w-full rounded-md bg-white mb-2"
+            className="p-3 ml-4 w-full border-2 border-gray-700 bg-white mb-2"
             id="Attr3"
             name="Attr3"
             value={ cardAttr3 }
@@ -79,10 +82,13 @@ export default class Form extends React.Component {
             type="number"
           />
         </label>
-        <label htmlFor="image">
-          Image:
+        <div className="w-full text-right mb-8">
+          <span>Pontos Restantes = 000 </span>
+        </div>
+        <label htmlFor="image" className="flex items-center py-2 mb-4">
+          <strong>Image:</strong>
           <input
-            className="p-2 w-full rounded-md bg-white mb-2"
+            className="p-3 ml-4 w-full border-2 border-gray-700 bg-white mb-2"
             id="image"
             name="image"
             value={ cardImage }
@@ -92,9 +98,9 @@ export default class Form extends React.Component {
           />
         </label>
         <label htmlFor="opt">
-          Rariade:
+          <strong>Rariade:</strong>
           <select
-            className="p-2 w-full rounded-md bg-white mb-2"
+            className="p-3 w-full border-b-2 border-gray-700 bg-white mb-2"
             id="opt"
             name="opt"
             value={ cardRare }
@@ -107,10 +113,9 @@ export default class Form extends React.Component {
           </select>
         </label>
 
-        <label htmlFor="trunfo" className="text-xl p-2 w-full">
-          Super Trybe Trunfo:
+        <label htmlFor="trunfo" className="text-xl py-4 mt-4 w-full">
           <input
-            className="p-1 rounded-md bg-white m-2"
+            className="p-4 rounded-md bg-white m-2"
             id="trunfo"
             name="trunfo"
             type="checkbox"
@@ -118,19 +123,21 @@ export default class Form extends React.Component {
             onChange={ onInputChange }
             checked={ cardTrunfo }
           />
+          <strong>Super Trybe Trunfo:</strong>
         </label>
-
-        <button
-          className="px-5 py-2 rounded-md bg-blue-600 text-white"
-          onClick={ onSaveButtonClick }
-          disabled={ isSaveButtonDisabled }
-          data-testid="save-button"
-          name="save-button"
-          type="button"
-          value={ isSaveButtonDisabled }
-        >
-          Salvar
-        </button>
+        <div className="m-14">
+          <button
+            className="px-5 py-2 rounded-md bg-blue-600 text-white"
+            onClick={ onSaveButtonClick }
+            disabled={ isSaveButtonDisabled }
+            data-testid="save-button"
+            name="save-button"
+            type="button"
+            value={ isSaveButtonDisabled }
+          >
+            Salvar
+          </button>
+        </div>
       </form>
     );
   }
