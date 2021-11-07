@@ -39,7 +39,7 @@ export default class App extends React.Component {
             { ...this.state }
           />
         </div>
-        <div className="bg-green-700 w-2/5 justify-center p-10">
+        <div className="bg-green-900 w-2/5 justify-center py-10 px-40">
           <div className="text-white text-4xl m-10">
             <strong>Pré Visualização</strong>
           </div>
