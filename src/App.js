@@ -22,8 +22,12 @@ export default class App extends React.Component {
   }
 
   onInputChange({ target }) {
-    const { name, value } = target;
-    this.setState({ [name]: value });
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    console.log(value);
+    this.setState(() => ({
+      [name]: value,
+    }));
   }
 
   render() {
@@ -31,7 +35,6 @@ export default class App extends React.Component {
       <div className="flex w-full justify-center m-auto ">
         <div className="m-auto w-2/5 justify-center">
           <Form
-            className="items-center p-10"
             onInputChange={ this.onInputChange }
             { ...this.state }
           />
@@ -40,11 +43,12 @@ export default class App extends React.Component {
           <div className="text-white text-4xl m-10">
             <strong>Pré Visualização</strong>
           </div>
-          <Card
-            className="justify-center items-center p-10"
-            onInputChange={ this.onInputChange }
-            { ...this.state }
-          />
+          <div className="text-white">
+            <Card
+              onInputChange={ this.onInputChange }
+              { ...this.state }
+            />
+          </div>
         </div>
       </div>
     );

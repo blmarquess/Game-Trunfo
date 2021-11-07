@@ -15,7 +15,7 @@ export default class Card extends Component {
     } = this.props;
 
     return (
-      <div className="flex-col w-full p-10">
+      <div className="flex-col w-full p-10 border-2 rounded-lg border-blue-50">
         <section>
           <span className="text-2xl text-right text-white p-4" data-testid="name-card">
             { cardName }

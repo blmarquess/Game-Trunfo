@@ -23,11 +23,11 @@ export default class Form extends React.Component {
         <div className="text-center m-10">
           <strong className="text-4xl">Adicionar nova carta</strong>
         </div>
-        <label htmlFor="cardName">
+        <label htmlFor="cardNme">
           <strong>Nome:</strong>
           <input
             className="p-3 w-full border-b-2 border-gray-700 bg-white mb-2"
-            id="cardName"
+            id="cardNme"
             name="cardName"
             value={ cardName }
             data-testid="name-input"
@@ -35,11 +35,11 @@ export default class Form extends React.Component {
             onChange={ onInputChange }
           />
         </label>
-        <label htmlFor="cardDescription">
+        <label htmlFor="cardDesc">
           <strong>Descrição:</strong>
           <textarea
             className="p-2 w-full border-b-2 border-gray-700 bg-white mb-2"
-            id="cardDescription"
+            id="cardDesc"
             name="cardDescription"
             value={ cardDescription }
             onChange={ onInputChange }
@@ -51,7 +51,7 @@ export default class Form extends React.Component {
           <input
             className="p-3 ml-4 w-full border-2 border-gray-700 bg-white mb-2"
             id="Attr1"
-            name="Attr1"
+            name="cardAttr1"
             value={ cardAttr1 }
             onChange={ onInputChange }
             data-testid="attr1-input"
@@ -63,7 +63,7 @@ export default class Form extends React.Component {
           <input
             className="p-3 ml-4 w-full border-2 border-gray-700 bg-white mb-2"
             id="Attr2"
-            name="Attr2"
+            name="cardAttr2"
             value={ cardAttr2 }
             onChange={ onInputChange }
             data-testid="attr2-input"
@@ -75,7 +75,7 @@ export default class Form extends React.Component {
           <input
             className="p-3 ml-4 w-full border-2 border-gray-700 bg-white mb-2"
             id="Attr3"
-            name="Attr3"
+            name="cardAttr3"
             value={ cardAttr3 }
             onChange={ onInputChange }
             data-testid="attr3-input"
@@ -85,12 +85,12 @@ export default class Form extends React.Component {
         <div className="w-full text-right mb-8">
           <span>Pontos Restantes = 000 </span>
         </div>
-        <label htmlFor="image" className="flex items-center py-2 mb-4">
+        <label htmlFor="cardImg" className="flex items-center py-2 mb-4">
           <strong>Image:</strong>
           <input
             className="p-3 ml-4 w-full border-2 border-gray-700 bg-white mb-2"
-            id="image"
-            name="image"
+            id="cardImg"
+            name="cardImage"
             value={ cardImage }
             onChange={ onInputChange }
             data-testid="image-input"
@@ -100,9 +100,9 @@ export default class Form extends React.Component {
         <label htmlFor="opt">
           <strong>Rariade:</strong>
           <select
-            className="p-3 w-full border-b-2 border-gray-700 bg-white mb-2"
+            className="p-3 w-full border-b-2 border-gray-700 bg-white mb-4"
             id="opt"
-            name="opt"
+            name="cardRare"
             value={ cardRare }
             data-testid="rare-input"
             onChange={ onInputChange }
@@ -113,11 +113,11 @@ export default class Form extends React.Component {
           </select>
         </label>
 
-        <label htmlFor="trunfo" className="text-xl py-4 mt-4 w-full">
+        <label htmlFor="trunf" className="text-xl py-4 w-full">
           <input
             className="p-4 rounded-md bg-white m-2"
-            id="trunfo"
-            name="trunfo"
+            id="trunf"
+            name="cardTrunfo"
             type="checkbox"
             data-testid="trunfo-input"
             onChange={ onInputChange }
