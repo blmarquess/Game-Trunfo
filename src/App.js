@@ -5,19 +5,22 @@ import Card from './components/Card';
 const initialState = {
   cardName: '',
   cardDescription: '',
-  cardAttr1: '',
-  cardAttr2: '',
-  cardAttr3: '',
+  cardAttr1: '0',
+  cardAttr2: '0',
+  cardAttr3: '0',
   cardImage: '',
   cardRare: 'normal',
   cardTrunfo: false,
   isSaveButtonDisabled: true,
+  dbState: [],
 };
 
 export default class App extends React.Component {
   constructor() {
     super();
     this.onInputChange = this.onInputChange.bind(this);
+    this.isSaveButtonDisabled = this.isSaveButtonDisabled.bind(this);
+    this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.state = initialState;
   }
 
@@ -26,7 +29,49 @@ export default class App extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState(() => ({
       [name]: value,
+    }), () => this.isSaveButtonDisabled());
+  }
+
+  onSaveButtonClick() {
+    const { cardName, cardDescription, cardAttr1, cardAttr2,
+      cardAttr3, cardImage, cardRare, cardTrunfo,
+    } = this.state;
+    const card = {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    };
+    this.setState(() => ({
+      [dbState]: (card),
     }));
+  }
+
+  cardAttrMax() {
+    const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
+    const maxPower = 90; const totalPowerMax = 210;
+
+    const numValid = [cardAttr1, cardAttr2, cardAttr3]
+      .every((num) => num <= maxPower && num >= 0);
+
+    const totalPower = [cardAttr1, cardAttr2, cardAttr3]
+      .reduce((acc, crv) => Number(acc) + Number(crv)) <= totalPowerMax;
+
+    return numValid && totalPower;
+  }
+
+  isSaveButtonDisabled() {
+    const entries = Object.values(this.state).every((ky) => ky !== '');
+
+    if (entries && this.cardAttrMax()) {
+      this.setState(() => ({ isSaveButtonDisabled: false }));
+    } else {
+      this.setState(() => ({ isSaveButtonDisabled: true }));
+    }
   }
 
   render() {
@@ -35,6 +80,7 @@ export default class App extends React.Component {
         <div className="m-auto w-2/5 justify-center">
           <Form
             onInputChange={ this.onInputChange }
+            onSaveButtonClick={ this.onSaveButtonClick }
             { ...this.state }
           />
         </div>

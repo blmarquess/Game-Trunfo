@@ -127,9 +127,9 @@ export default class Form extends React.Component {
         </label>
         <div className="m-14">
           <button
-            className="px-5 py-2 rounded-md bg-blue-600 text-white"
-            onClick={ onSaveButtonClick }
             disabled={ isSaveButtonDisabled }
+            className="px-14 py-4 rounded-md bg-blue-600 text-white text-xl"
+            onClick={ onSaveButtonClick }
             data-testid="save-button"
             name="save-button"
             type="button"

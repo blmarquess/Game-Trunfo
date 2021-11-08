@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const spanNum = 'bg-green-900 text-white rounded-r-xl -m-3 p-3 w-20';
+const spanNum = 'bg-green-900 text-white text-center rounded-r-xl -m-3 p-2 w-20';
 const labelLevel = 'bg-gray-100 flex justify-between rounded-xl m-3 p-3';
 const raridade = `border-2 rounded-xl text-center flex items-center shadow-lg
-justify-center text-white bg-green-800 font-black text-xl w-40 h-12 -mt-72 mx-96`;
+justify-center text-white bg-green-800 font-black text-xl w-40 h-12`;
 const container = `flex-col min-w-1/5 max-w-1/5 p-3 border-8 rounded-3xl shadow-lg
 border-blue-50 bg-green-700 box-content grid grid-cols-1`;
 const topCard = 'rounded-t-xl bg-green-900 text-right p-4 flex items-end justify-between';
@@ -36,7 +36,7 @@ export default class Card extends Component {
           <img src={ cardImage } alt={ cardName } data-testid="image-card" />
         </section>
         <section
-          className="px-4 py-2 w-full -mt-20 mb-2 bg-green-700
+          className="px-4 py-2 w-full -mt-24 mb-2 bg-green-700
           bg-clip-text transform -skew-y-6 h-24 text-md flex-grow"
         >
           <p data-testid="description-card">
@@ -44,7 +44,7 @@ export default class Card extends Component {
           </p>
         </section>
         <section className="bg-white -mt-12 rounded-b-xl pt-16 pb-10 h-80">
-          <section>
+          <section className="flex justify-end -mt-8 px-4 mx-6">
             <span data-testid="rare-card">{ cardRare }</span>
           </section>
           <section id="atributs" className="p-4 text-gray-800 text-2xl">
