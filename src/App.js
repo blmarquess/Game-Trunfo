@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import Deck from './components/Deck';
 
 const initialState = {
   cardName: '',
@@ -32,8 +33,7 @@ export default class App extends React.Component {
     }), () => this.isSaveButtonDisabled());
   }
 
-  onSaveButtonClick(event) {
-    event.preventDefault();
+  onSaveButtonClick() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardRare, cardTrunfo, dbState,
     } = this.state;
@@ -55,7 +55,6 @@ export default class App extends React.Component {
       cardAttr3: '0',
       cardImage: '',
       cardRare: 'normal',
-      cardTrunfo: false,
       isSaveButtonDisabled: true,
       dbState: dbState.concat(card),
     });
@@ -86,25 +85,42 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="flex w-full justify-center m-auto ">
-        <div className="m-auto w-2/5 justify-center">
-          <Form
-            onInputChange={ this.onInputChange }
-            onSaveButtonClick={ this.onSaveButtonClick }
-            { ...this.state }
-          />
-        </div>
-        <div className="bg-green-900 w-2/5 justify-center py-10 px-40">
-          <div className="text-white text-4xl m-10">
-            <strong>Pré Visualização</strong>
-          </div>
-          <div className="text-white">
-            <Card
+      <div className="container m-auto shadow-xl">
+        <section className="flex w-full justify-center">
+          <div className="m-auto w-1/2 justify-center">
+            <Form
               onInputChange={ this.onInputChange }
+              onSaveButtonClick={ this.onSaveButtonClick }
               { ...this.state }
             />
           </div>
-        </div>
+          <div className="bg-green-900 w-1/2 justify-center py-10 px-40">
+            <div className="text-white text-4xl">
+              <strong>Pré Visualização</strong>
+            </div>
+            <div className="text-white w-full">
+              <Card
+                onInputChange={ this.onInputChange }
+                { ...this.state }
+              />
+            </div>
+          </div>
+        </section>
+        <section className="flex flex-wrap space-x-4">
+          {
+            this.state.dbState.map((carta) => (<Deck
+              key={ carta.name }
+              cardName={ carta.cardName }
+              cardDescription={ carta.cardDescription }
+              cardAttr1={ carta.cardAttr1 }
+              cardAttr2={ carta.cardAttr2 }
+              cardAttr3={ carta.cardAttr3 }
+              cardImage={ carta.cardImage }
+              cardRare={ carta.cardRare }
+              cardTrunfo={ carta.cardTrunfo }
+            />))
+          }
+        </section>
       </div>
     );
   }

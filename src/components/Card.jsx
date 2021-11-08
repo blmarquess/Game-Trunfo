@@ -25,7 +25,7 @@ export default class Card extends Component {
     return (
       <div className={ container }>
         <section className={ topCard }>
-          <div className="text-4xl text-left">
+          <div className="text-4xl text-left h-8">
             {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
           </div>
           <span className="text-4xl text-right text-white" data-testid="name-card">
