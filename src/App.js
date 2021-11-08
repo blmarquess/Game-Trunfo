@@ -32,9 +32,10 @@ export default class App extends React.Component {
     }), () => this.isSaveButtonDisabled());
   }
 
-  onSaveButtonClick() {
+  onSaveButtonClick(event) {
+    event.preventDefault();
     const { cardName, cardDescription, cardAttr1, cardAttr2,
-      cardAttr3, cardImage, cardRare, cardTrunfo,
+      cardAttr3, cardImage, cardRare, cardTrunfo, dbState,
     } = this.state;
     const card = {
       cardName,
@@ -46,9 +47,18 @@ export default class App extends React.Component {
       cardRare,
       cardTrunfo,
     };
-    this.setState(() => ({
-      [dbState]: (card),
-    }));
+    this.setState({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      isSaveButtonDisabled: true,
+      dbState: dbState.concat(card),
+    });
   }
 
   cardAttrMax() {
