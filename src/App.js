@@ -12,6 +12,7 @@ const initialState = {
   cardImage: '',
   cardRare: 'normal',
   cardTrunfo: false,
+  hasTrunfo: false,
   isSaveButtonDisabled: true,
   dbState: [],
 };
@@ -22,6 +23,7 @@ export default class App extends React.Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.isSaveButtonDisabled = this.isSaveButtonDisabled.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+    this.HasTrunfoOn = this.HasTrunfoOn.bind(this);
     this.state = initialState;
   }
 
@@ -47,6 +49,7 @@ export default class App extends React.Component {
       cardRare,
       cardTrunfo,
     };
+
     this.setState({
       cardName: '',
       cardDescription: '',
@@ -55,9 +58,19 @@ export default class App extends React.Component {
       cardAttr3: '0',
       cardImage: '',
       cardRare: 'normal',
+      cardTrunfo: false,
       isSaveButtonDisabled: true,
       dbState: dbState.concat(card),
+    }, () => this.HasTrunfoOn());
+  }
+
+  HasTrunfoOn() {
+    const { dbState } = this.state;
+    const tunfOn = dbState.some((val) => val.cardTrunfo === true);
+    this.setState({
+      hasTrunfo: tunfOn,
     });
+    console.log(tunfOn);
   }
 
   cardAttrMax() {
@@ -84,6 +97,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    const { dbState } = this.state;
     return (
       <div className="container m-auto shadow-xl">
         <section className="flex w-full justify-center">
@@ -108,7 +122,7 @@ export default class App extends React.Component {
         </section>
         <section className="flex flex-wrap space-x-4">
           {
-            this.state.dbState.map((carta) => (<Deck
+            dbState.map((carta) => (<Deck
               key={ carta.name }
               cardName={ carta.cardName }
               cardDescription={ carta.cardDescription }
