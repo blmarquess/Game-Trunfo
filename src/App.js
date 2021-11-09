@@ -96,8 +96,9 @@ export default class App extends React.Component {
     }
   }
 
-  isDeliteCard() {
-    console.log(this);
+  isDeliteCard(event) {
+    const $card = event.target.parentNode.previousSibling.firstChild.firstChild.innerText;
+    console.log($card.innerText);
   }
 
   render() {

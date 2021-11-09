@@ -18,7 +18,7 @@ from-green-600 to-blue-900`;
 
 const superTrunfo = `flex items-center justify-start text-white
 text-black shadow-md bg-gradient-to-r rounded-lg px-2
-from-purple-400 via-pink-500 to-red-500`;
+from-purple-400 via-pink-500 to-red-500 order-1`;
 
 export default class Deck extends Component {
   render() {
@@ -36,8 +36,14 @@ export default class Deck extends Component {
 
     return (
       <div className="flex-col w-2/7">
-        <div className={ container }>
+        <div className={ container } value={ cardName }>
           <section className={ topCard }>
+            <span
+              className="text-2xl text-right text-white order-2"
+              data-testid="name-card"
+            >
+              { cardName }
+            </span>
             <div className="text-xl text-left h-8">
               {cardTrunfo
                 && (
@@ -46,9 +52,6 @@ export default class Deck extends Component {
                   </p>
                 )}
             </div>
-            <span className="text-2xl text-right text-white" data-testid="name-card">
-              { cardName }
-            </span>
           </section>
           <section className="flex-col w-full h-72 overflow-hidden object-fill ">
             <img src={ cardImage } alt={ cardName } data-testid="image-card" />
