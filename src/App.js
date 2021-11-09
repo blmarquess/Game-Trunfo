@@ -24,6 +24,7 @@ export default class App extends React.Component {
     this.isSaveButtonDisabled = this.isSaveButtonDisabled.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.HasTrunfoOn = this.HasTrunfoOn.bind(this);
+    this.isDeliteCard = this.isDeliteCard.bind(this);
     this.state = initialState;
   }
 
@@ -70,7 +71,6 @@ export default class App extends React.Component {
     this.setState({
       hasTrunfo: tunfOn,
     });
-    console.log(tunfOn);
   }
 
   cardAttrMax() {
@@ -94,6 +94,10 @@ export default class App extends React.Component {
     } else {
       this.setState(() => ({ isSaveButtonDisabled: true }));
     }
+  }
+
+  isDeliteCard() {
+    console.log('isDeliteCard-Clicked');
   }
 
   render() {
@@ -120,18 +124,12 @@ export default class App extends React.Component {
             </div>
           </div>
         </section>
-        <section className="flex flex-wrap space-x-4">
+        <section className="flex flex-wrap justify-around">
           {
             dbState.map((carta) => (<Deck
               key={ carta.name }
-              cardName={ carta.cardName }
-              cardDescription={ carta.cardDescription }
-              cardAttr1={ carta.cardAttr1 }
-              cardAttr2={ carta.cardAttr2 }
-              cardAttr3={ carta.cardAttr3 }
-              cardImage={ carta.cardImage }
-              cardRare={ carta.cardRare }
-              cardTrunfo={ carta.cardTrunfo }
+              { ...carta }
+              isDeliteCard={ this.isDeliteCard }
             />))
           }
         </section>

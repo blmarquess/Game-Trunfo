@@ -63,7 +63,9 @@ export default class Card extends Component {
           </section>
           <section>
             <div className={ raridade }>
-              <span id="raridade" name="cardRare">{ cardRare }</span>
+              <span id="raridade" name="cardRare" className="text-white">
+                { cardRare }
+              </span>
             </div>
           </section>
         </section>

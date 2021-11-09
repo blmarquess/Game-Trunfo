@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const btnSave = `px-14 py-4 rounded-md bg-blue-600 text-white text-xl
+bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500
+hover:to-yellow-500 `;
+
 export default class Form extends React.Component {
   render() {
     const {
@@ -135,7 +139,7 @@ export default class Form extends React.Component {
         <div className="m-14">
           <button
             disabled={ isSaveButtonDisabled }
-            className="px-14 py-4 rounded-md bg-blue-600 text-white text-xl"
+            className={ btnSave }
             onClick={ onSaveButtonClick }
             data-testid="save-button"
             name="save-button"
