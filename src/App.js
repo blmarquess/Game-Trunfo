@@ -97,7 +97,7 @@ export default class App extends React.Component {
   }
 
   isDeliteCard() {
-    console.log('isDeliteCard-Clicked');
+    console.log(this);
   }
 
   render() {
