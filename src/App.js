@@ -2,6 +2,7 @@ import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 import Deck from './components/Deck';
+// import Filters from './components/Filter';
 
 const initialState = {
   cardName: '',
@@ -129,7 +130,8 @@ export default class App extends React.Component {
             </div>
           </div>
         </section>
-        <section className="flex flex-wrap justify-around">
+        <section className="flex justify-around w-full">
+          {/* <Filters daseOnState={ dbState } isDeliteCard={ this.isDeliteCard } /> */}
           {
             dbState.map((carta, index) => (<Deck
               key={ index + 1 }

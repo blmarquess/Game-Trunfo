@@ -4,7 +4,7 @@ import Attrs from './Attrs';
 
 const excluirBTN = `border-4 border-white rounded-xl shadow-lg
 flex justify-center items-center text-white bg-red-600 shadow-2xl
-font-black text-xl w-40 h-12 mx-auto cursor-pointer mt-2`;
+font-black text-xl w-2/5 h-12 mx-auto cursor-pointer mt-2`;
 
 const container = `flex-colp-3 border-8 rounded-3xl shadow-lg
 border-blue-50 bg-green-700 box-content grid grid-cols-1 m-4 p-2`;
