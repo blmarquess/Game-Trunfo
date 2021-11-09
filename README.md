@@ -97,7 +97,7 @@ Neste projeto você vai desenvolver um jogo no estilo Super Trunfo! Ao utilizar 
 
 Para entregar o seu projeto você deverá criar um Pull Request neste repositório.
 
-Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://course.betrybe.com/intro/git/) sempre que precisar
+Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://app.betrybe.com/course/fundamentals/git-github-e-internet/git-github-entendendo-os-comandos/4d67f5b4-34a6-489f-a205-b6c7dc50fc16/) sempre que precisar
 
 ### Protótipo do projeto
 
