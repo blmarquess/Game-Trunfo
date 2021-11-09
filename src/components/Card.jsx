@@ -5,7 +5,7 @@ const spanNum = 'bg-green-900 text-white text-center rounded-r-xl -m-3 p-2 w-20'
 const labelLevel = 'bg-gray-100 flex justify-between rounded-xl m-3 p-3';
 const raridade = `border-2 rounded-xl text-center flex items-center shadow-lg
 justify-center text-white bg-green-800 font-black text-xl w-40 h-12`;
-const container = `flex-col min-w-1/5 max-w-1/5 p-3 border-8 rounded-3xl shadow-lg
+const container = `flex-col min-w-1/5 max-w-1/5 p-3 border-8 rounded-3xl shadow-2xl
 border-blue-50 bg-green-700 box-content grid grid-cols-1`;
 const topCard = 'rounded-t-xl bg-green-900 text-right p-4 flex items-end justify-between';
 

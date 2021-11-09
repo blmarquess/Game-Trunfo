@@ -1,8 +1,8 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
-import Deck from './components/Deck';
-// import Filters from './components/Filter';
+// import Deck from './components/Deck';
+import Filters from './components/Filter';
 
 const initialState = {
   cardName: '',
@@ -142,15 +142,17 @@ export default class App extends React.Component {
             </div>
           </div>
         </section>
-        <section className="flex justify-around w-full">
-          {/* <Filters daseOnState={ dbState } isDeliteCard={ this.isDeliteCard } /> */}
-          {
+        <section className="flex justify-between w-full">
+          {dbState.length > 0
+            && <Filters daseOnState={ dbState } isDeliteCard={ this.isDeliteCard } /> }
+
+          {/* {
             dbState.map((carta, index) => (<Deck
               key={ index + 1 }
               { ...carta }
               isDeliteCard={ this.isDeliteCard }
             />))
-          }
+          } */}
         </section>
       </div>
     );

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const btnSave = `px-14 py-4 rounded-md bg-blue-600 text-white text-xl
+const btnSave = `py-4 w-3/5 justify-center rounded-md bg-blue-600 text-white text-xl
 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500
-hover:to-yellow-500 `;
+hover:to-yellow-500`;
 
 export default class Form extends React.Component {
   render() {
@@ -120,9 +120,12 @@ export default class Form extends React.Component {
         { hasTrunfo
           ? <p>Você já tem um Super Trunfo em seu baralho</p>
           : (
-            <label htmlFor="trunf" className="text-xl py-4 w-full">
+            <label
+              htmlFor="trunf"
+              className="text-xl py-2 w-full flex justify-center items-center"
+            >
               <input
-                className="p-4 rounded-md bg-white m-2"
+                className="p-4 rounded-md bg-white w-10 h-4"
                 id="trunf"
                 name="cardTrunfo"
                 type="checkbox"
@@ -136,7 +139,7 @@ export default class Form extends React.Component {
             </label>
           )}
 
-        <div className="m-14">
+        <div className="mx-auto my-8 flex justify-center">
           <button
             disabled={ isSaveButtonDisabled }
             className={ btnSave }
