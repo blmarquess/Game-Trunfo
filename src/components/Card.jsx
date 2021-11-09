@@ -32,18 +32,18 @@ export default class Card extends Component {
             { cardName }
           </span>
         </section>
-        <section className="flex-col w-full h-96 overflow-hidden object-fill ">
+        <section className="flex-col w-full h-96 overflow-hidden object-fill">
           <img src={ cardImage } alt={ cardName } data-testid="image-card" />
         </section>
         <section
-          className="px-4 py-2 w-full -mt-24 mb-2 bg-green-700
-          bg-clip-text transform -skew-y-6 h-24 text-md flex-grow"
+          className="px-6 py-2 w-full -mt-32 mb-2 mx-0 bg-green-700
+          bg-clip-text transform -skew-y-6 h-32 text-md flex-grow"
         >
           <p data-testid="description-card">
             { cardDescription }
           </p>
         </section>
-        <section className="bg-white -mt-12 rounded-b-xl pt-16 pb-10 h-80">
+        <section className="bg-white -mt-16 rounded-b-xl pt-16 pb-10 h-80">
           <section className="flex justify-end -mt-8 px-4 mx-6">
             <span data-testid="rare-card">{ cardRare }</span>
           </section>

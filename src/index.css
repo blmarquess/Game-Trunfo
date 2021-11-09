@@ -16,3 +16,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.shail {
+  background-image: url('./components/assets/images/sheilong.jpeg');
+  background-size: contain;
+  opacity: 0.70;
+  overflow: hidden;
+}

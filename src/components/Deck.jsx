@@ -79,12 +79,13 @@ export default class Deck extends Component {
         </div>
         <section className="flex mx-auto p-2 -mt-4">
           <button
+            id="delete-button"
             className={ excluirBTN }
             onClick={ isDeliteCard }
             data-testid="delete-button"
-            name="btn-excluir"
+            name="delete-button"
             type="button"
-            value="{ isSaveButtonDisabled }"
+            value="delete-button"
           >
             Excluir
           </button>
