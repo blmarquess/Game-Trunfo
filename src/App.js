@@ -26,6 +26,7 @@ export default class App extends React.Component {
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.HasTrunfoOn = this.HasTrunfoOn.bind(this);
     this.isDeliteCard = this.isDeliteCard.bind(this);
+    this.randIds = this.gerarIds.bind(this);
     this.state = initialState;
   }
 
@@ -41,7 +42,11 @@ export default class App extends React.Component {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
       cardAttr3, cardImage, cardRare, cardTrunfo, dbState,
     } = this.state;
+
+    const id = this.gerarIds(cardName, cardDescription, cardAttr2, cardImage);
+
     const card = {
+      id,
       cardName,
       cardDescription,
       cardAttr1,
@@ -64,6 +69,14 @@ export default class App extends React.Component {
       isSaveButtonDisabled: true,
       dbState: dbState.concat(card),
     }, () => this.HasTrunfoOn());
+  }
+
+  gerarIds(a, b, c, d) {
+    const as = a.split(' ').join(''); const ard = d.split().sort().join();
+    return Math.floor(Math.random() * a.length + c.length) + c + a.length
+      + ard + Math.floor(Math.random() * (a.length * b.length)) + as
+      + d + Math.floor(Math.random() * (b.length * a.length))
+      + b.length + as + Math.floor(Math.random() * a.length) + c;
   }
 
   HasTrunfoOn() {
@@ -99,11 +112,10 @@ export default class App extends React.Component {
 
   isDeliteCard({ target }) {
     const { dbState } = this.state;
-    const $card = target.parentNode.previousSibling.firstChild.firstChild.innerText;
-    const newDB = dbState.filter((elm) => elm.cardName !== $card);
-    this.setState({
+    const newDB = dbState.filter((elm) => elm.id !== target.value);
+    this.setState(() => ({
       dbState: newDB,
-    }, () => this.HasTrunfoOn());
+    }), () => this.HasTrunfoOn());
   }
 
   render() {

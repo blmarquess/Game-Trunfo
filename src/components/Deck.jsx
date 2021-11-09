@@ -23,6 +23,7 @@ from-purple-400 via-pink-500 to-red-500 order-1`;
 export default class Deck extends Component {
   render() {
     const {
+      id,
       cardName,
       cardDescription,
       cardAttr1,
@@ -85,7 +86,7 @@ export default class Deck extends Component {
             data-testid="delete-button"
             name="delete-button"
             type="button"
-            value="delete-button"
+            value={ id }
           >
             Excluir
           </button>
@@ -96,6 +97,7 @@ export default class Deck extends Component {
 }
 
 Deck.propTypes = {
+  id: PropTypes.string.isRequired,
   cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
   cardAttr1: PropTypes.string.isRequired,
