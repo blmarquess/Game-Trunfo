@@ -96,9 +96,13 @@ export default class App extends React.Component {
     }
   }
 
-  isDeliteCard(event) {
-    const $card = event.target.parentNode.previousSibling.firstChild.firstChild.innerText;
-    console.log($card.innerText);
+  isDeliteCard({ target }) {
+    const { dbState } = this.state;
+    const $card = target.parentNode.previousSibling.firstChild.firstChild.innerText;
+    const newDB = dbState.filter((elm) => elm.cardName !== $card);
+    this.setState({
+      dbState: newDB,
+    }, () => this.HasTrunfoOn());
   }
 
   render() {
@@ -127,8 +131,8 @@ export default class App extends React.Component {
         </section>
         <section className="flex flex-wrap justify-around">
           {
-            dbState.map((carta) => (<Deck
-              key={ carta.name }
+            dbState.map((carta, index) => (<Deck
+              key={ index + 1 }
               { ...carta }
               isDeliteCard={ this.isDeliteCard }
             />))
