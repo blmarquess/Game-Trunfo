@@ -10,6 +10,23 @@ bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 mx-auto my-6
 hover:to-yellow-500`;
 
 export default class Filters extends React.Component {
+  constructor() {
+    super();
+    this.toFilter = this.toFilter.bind(this);
+    this.onInputCapture = this.onInputCapture.bind(this);
+  }
+
+  onInputCapture({ target }) {
+    const { name, value } = target;
+    this.setState(() => ({
+      [name]: value,
+    }));
+  }
+
+  toFilter() {
+    console.log('clicou ni btn filter');
+  }
+
   render() {
     const { daseOnState, isDeliteCard } = this.props;
     return (
@@ -21,7 +38,7 @@ export default class Filters extends React.Component {
         <section className="grid grid-cols-3 gap-0 w-full">
 
           <navi className="">
-            <h2 data-testid="name-filter text-xl">Filtros de busca</h2>
+            <h2>Filtros de busca</h2>
             <input
               type="text"
               placeholder="Nome da carta"
@@ -29,7 +46,7 @@ export default class Filters extends React.Component {
               id="nameCartFilter"
               name="nameCartFilter"
               data-testid=""
-              // onChange={ onInputChange }
+              onChange={ this.onInputCapture }
             />
             <select className={ styleImput } placeholder="Raridade">
               <option name="Todos" value="Todos">Todos</option>
@@ -50,7 +67,11 @@ export default class Filters extends React.Component {
                 className="mx-1 w-10 h-4 border-transparent rounded-full"
               />
 
-              <button type="button" className={ btnFilter }>
+              <button
+                type="button"
+                className={ btnFilter }
+                onClick={ this.toFilter }
+              >
                 Filtrar
               </button>
             </section>
@@ -77,4 +98,5 @@ export default class Filters extends React.Component {
 Filters.propTypes = {
   daseOnState: PropTypes.string.isRequired,
   isDeliteCard: PropTypes.func.isRequired,
+  onInputChange: PropTypes.func.isRequired,
 };

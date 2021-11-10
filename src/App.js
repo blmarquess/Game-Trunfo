@@ -144,7 +144,10 @@ export default class App extends React.Component {
         </section>
         <section className="flex justify-between w-full">
           {dbState.length > 0
-            && <Filters daseOnState={ dbState } isDeliteCard={ this.isDeliteCard } /> }
+            && <Filters
+              daseOnState={ dbState }
+              isDeliteCard={ this.isDeliteCard }
+            />}
 
           {/* {
             dbState.map((carta, index) => (<Deck
