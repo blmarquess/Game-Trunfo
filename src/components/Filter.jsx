@@ -9,7 +9,7 @@ const btnFilter = `py-4 w-4/5 text-center rounded-md bg-blue-600 text-white text
 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 mx-auto my-6
 hover:to-yellow-500`;
 
-const initState = { cardFilterName: '', cardFilterRare: 'todos' };
+const initState = { cardFilterName: '', cardFilterRare: '' };
 
 export default class Filters extends React.Component {
   constructor() {
@@ -27,7 +27,7 @@ export default class Filters extends React.Component {
   }
 
   toFilter() {
-    console.log('clicou ni btn filter');
+    // console.log('clicou ni btn filter');
   }
 
   render() {
@@ -38,7 +38,7 @@ export default class Filters extends React.Component {
       .filter(({ cardName }) => cardName.includes(cardFilterName))
       .filter(({ cardRare }) => cardRare.includes(cardFilterRare));
 
-    console.log(posFilter);
+    // console.log(posFilter);
 
     return (
       <section className="grid mx-8">
