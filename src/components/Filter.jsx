@@ -71,7 +71,7 @@ export default class Filters extends React.Component {
               data-testid="rare-filter"
               onChange={ this.onInputCapture }
             >
-              <option name="Todos" value="">Todos</option>
+              <option name="Todos" value="todas">Todos</option>
               <option name="Normais" value="normal">Normals</option>
               <option name="Raros" value="raro">Raras</option>
               <option name="MuitoRaro" value="muito raro">Muito Raras</option>
@@ -86,6 +86,7 @@ export default class Filters extends React.Component {
                 type="checkbox"
                 id="cst"
                 name="cardFilterTrunfo"
+                data-testid="trunfo-filter"
                 onChange={ this.onInputCapture }
                 className="mx-1 w-10 h-4 border-transparent rounded-full"
               />
