@@ -32,7 +32,7 @@ export default class Filters extends React.Component {
   }
 
   toFilter() {
-    // console.log('clicou ni btn filter');
+    console.log('clicou ni btn filter mais nem precisa desse botão');
   }
 
   render() {
