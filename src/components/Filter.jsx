@@ -9,7 +9,7 @@ const btnFilter = `py-4 w-4/5 text-center rounded-md bg-blue-600 text-white text
 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 mx-auto my-6
 hover:to-yellow-500`;
 
-const initState = { cardFilterName: '', cardFilterRare: '' };
+const initState = { cardFilterName: '', cardFilterRare: '', cardFilterTrunfo: false };
 
 export default class Filters extends React.Component {
   constructor() {
@@ -20,7 +20,8 @@ export default class Filters extends React.Component {
   }
 
   onInputCapture({ target }) {
-    const { name, value } = target;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState(() => ({
       [name]: value,
     }));
@@ -32,9 +33,13 @@ export default class Filters extends React.Component {
 
   render() {
     const { baseOnState, isDeliteCard } = this.props;
-    const { cardFilterName, cardFilterRare } = this.state;
+    const { cardFilterName, cardFilterRare, cardFilterTrunfo } = this.state;
 
-    const posFilter = baseOnState
+    const posFilter = baseOnState.filter(({ cardTrunfo }) => {
+      if (cardFilterTrunfo) {
+        return cardTrunfo;
+      } return true;
+    })
       .filter(({ cardName }) => cardName.includes(cardFilterName))
       .filter(({ cardRare }) => cardRare.includes(cardFilterRare));
 
@@ -80,7 +85,8 @@ export default class Filters extends React.Component {
               <input
                 type="checkbox"
                 id="cst"
-                name="check-super-trunfo"
+                name="cardFilterTrunfo"
+                onChange={ this.onInputCapture }
                 className="mx-1 w-10 h-4 border-transparent rounded-full"
               />
 
