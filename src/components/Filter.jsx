@@ -9,11 +9,14 @@ const btnFilter = `py-4 w-4/5 text-center rounded-md bg-blue-600 text-white text
 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 mx-auto my-6
 hover:to-yellow-500`;
 
+const initState = { cardFilterName: '', cardFilterRare: '' };
+
 export default class Filters extends React.Component {
   constructor() {
     super();
     this.toFilter = this.toFilter.bind(this);
     this.onInputCapture = this.onInputCapture.bind(this);
+    this.state = initState;
   }
 
   onInputCapture({ target }) {
@@ -28,7 +31,18 @@ export default class Filters extends React.Component {
   }
 
   render() {
-    const { daseOnState, isDeliteCard } = this.props;
+    const { baseOnState, isDeliteCard } = this.props;
+    const { cardFilterName, cardFilterRare } = this.state;
+
+    const posFilter = baseOnState.filter((nom) => {
+      if (!cardFilterName.length === 0) {
+        return cardFilterName.includes(nom.cardName);
+      }
+      return 'encontrou nada';
+    });
+
+    console.log(posFilter);
+
     return (
       <section className="grid mx-8">
         <section className="grid col-1 my-10 w-11/12">
@@ -37,22 +51,28 @@ export default class Filters extends React.Component {
 
         <section className="grid grid-cols-3 gap-0 w-full">
 
-          <navi className="">
+          <nav className="">
             <h2>Filtros de busca</h2>
             <input
               type="text"
               placeholder="Nome da carta"
               className={ styleImput }
               id="nameCartFilter"
-              name="nameCartFilter"
-              data-testid=""
+              name="cardFilterName"
+              data-testid="name-filter"
               onChange={ this.onInputCapture }
             />
-            <select className={ styleImput } placeholder="Raridade">
-              <option name="Todos" value="Todos">Todos</option>
-              <option name="Normais" value="Normais">Normals</option>
-              <option name="Raros" value="Raros">Raras</option>
-              <option name="MuitoRaro" value="MuitoRaro">Muito Raras</option>
+            <select
+              className={ styleImput }
+              placeholder="Raridade"
+              name="cardFilterRare"
+              data-testid="rare-filter"
+              onChange={ this.onInputCapture }
+            >
+              <option name="Todos" value="todos">Todos</option>
+              <option name="Normais" value="normal">Normals</option>
+              <option name="Raros" value="raro">Raras</option>
+              <option name="MuitoRaro" value="muito raro">Muito Raras</option>
             </select>
 
             <section
@@ -75,17 +95,20 @@ export default class Filters extends React.Component {
                 Filtrar
               </button>
             </section>
-          </navi>
+          </nav>
 
           <section className="col-span-2">
             <div className="flex w-full justify-evenly flex-wrap">
+
               {
-                daseOnState.map((carta, index) => (<Deck
-                  key={ index + 1 }
-                  { ...carta }
-                  isDeliteCard={ isDeliteCard }
-                />))
+                baseOnState.map((carta, index) => (
+                  <Deck
+                    key={ index + 1 }
+                    { ...carta }
+                    isDeliteCard={ isDeliteCard }
+                  />))
               }
+
             </div>
           </section>
 
@@ -96,7 +119,6 @@ export default class Filters extends React.Component {
 }
 
 Filters.propTypes = {
-  daseOnState: PropTypes.string.isRequired,
+  baseOnState: PropTypes.string.isRequired,
   isDeliteCard: PropTypes.func.isRequired,
-  onInputChange: PropTypes.func.isRequired,
 };

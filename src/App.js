@@ -1,7 +1,6 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
-// import Deck from './components/Deck';
 import Filters from './components/Filter';
 
 const initialState = {
@@ -43,7 +42,7 @@ export default class App extends React.Component {
       cardAttr3, cardImage, cardRare, cardTrunfo, dbState,
     } = this.state;
 
-    const id = this.gerarIds(cardName, cardDescription, cardAttr2, cardImage);
+    const id = this.gerarIds(cardName, cardRare);
 
     const card = {
       id,
@@ -71,12 +70,9 @@ export default class App extends React.Component {
     }, () => this.HasTrunfoOn());
   }
 
-  gerarIds(a, b, c, d) {
-    const as = a.split(' ').join(''); const ard = d.split().sort().join();
-    return Math.floor(Math.random() * a.length + c.length) + c + a.length
-      + ard + Math.floor(Math.random() * (a.length * b.length)) + as
-      + d + Math.floor(Math.random() * (b.length * a.length))
-      + b.length + as + Math.floor(Math.random() * a.length) + c;
+  gerarIds(a, b) {
+    return (a + b + ((new Date().getTime() / a.length) * Math.random())
+      + b).split(' ').sort().join();
   }
 
   HasTrunfoOn() {
@@ -143,19 +139,12 @@ export default class App extends React.Component {
           </div>
         </section>
         <section className="flex justify-between w-full">
-          {dbState.length > 0
-            && <Filters
-              daseOnState={ dbState }
-              isDeliteCard={ this.isDeliteCard }
-            />}
 
-          {/* {
-            dbState.map((carta, index) => (<Deck
-              key={ index + 1 }
-              { ...carta }
-              isDeliteCard={ this.isDeliteCard }
-            />))
-          } */}
+          <Filters
+            baseOnState={ dbState }
+            isDeliteCard={ this.isDeliteCard }
+          />
+
         </section>
       </div>
     );
