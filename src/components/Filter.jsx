@@ -34,12 +34,7 @@ export default class Filters extends React.Component {
     const { baseOnState, isDeliteCard } = this.props;
     const { cardFilterName, cardFilterRare } = this.state;
 
-    const posFilter = baseOnState.filter((nom) => {
-      if (!cardFilterName.length === 0) {
-        return cardFilterName.includes(nom.cardName);
-      }
-      return 'encontrou nada';
-    });
+    const posFilter = baseOnState.filter((nom) => nom.cardName.includes(cardFilterName));
 
     console.log(posFilter);
 
