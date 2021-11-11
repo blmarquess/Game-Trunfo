@@ -9,7 +9,7 @@ const btnFilter = `py-4 w-4/5 text-center rounded-md bg-blue-600 text-white text
 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 mx-auto my-6
 hover:to-yellow-500`;
 
-const initState = { cardFilterName: '', cardFilterRare: '' };
+const initState = { cardFilterName: '', cardFilterRare: 'todos' };
 
 export default class Filters extends React.Component {
   constructor() {
@@ -34,7 +34,9 @@ export default class Filters extends React.Component {
     const { baseOnState, isDeliteCard } = this.props;
     const { cardFilterName, cardFilterRare } = this.state;
 
-    const posFilter = baseOnState.filter((nom) => nom.cardName.includes(cardFilterName));
+    const posFilter = baseOnState
+      .filter(({ cardName }) => cardName.includes(cardFilterName))
+      .filter(({ cardRare }) => cardRare.includes(cardFilterRare));
 
     console.log(posFilter);
 
@@ -64,7 +66,7 @@ export default class Filters extends React.Component {
               data-testid="rare-filter"
               onChange={ this.onInputCapture }
             >
-              <option name="Todos" value="todos">Todos</option>
+              <option name="Todos" value="">Todos</option>
               <option name="Normais" value="normal">Normals</option>
               <option name="Raros" value="raro">Raras</option>
               <option name="MuitoRaro" value="muito raro">Muito Raras</option>
@@ -96,7 +98,7 @@ export default class Filters extends React.Component {
             <div className="flex w-full justify-evenly flex-wrap">
 
               {
-                baseOnState.map((carta, index) => (
+                posFilter.map((carta, index) => (
                   <Deck
                     key={ index + 1 }
                     { ...carta }
