@@ -9,7 +9,11 @@ const btnFilter = `py-4 w-4/5 text-center rounded-md bg-blue-600 text-white text
 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 mx-auto my-6
 hover:to-yellow-500`;
 
-const initState = { cardFilterName: '', cardFilterRare: '', cardFilterTrunfo: false };
+const initState = {
+  cardFilterName: '',
+  cardFilterRare: 'todas',
+  cardFilterTrunfo: false,
+};
 
 export default class Filters extends React.Component {
   constructor() {
@@ -41,7 +45,11 @@ export default class Filters extends React.Component {
       } return true;
     })
       .filter(({ cardName }) => cardName.includes(cardFilterName))
-      .filter(({ cardRare }) => cardRare.includes(cardFilterRare));
+      .filter(({ cardRare }) => {
+        if (cardFilterRare === 'todas') {
+          return true;
+        } return cardRare === cardFilterRare;
+      });
 
     // console.log(posFilter);
 
