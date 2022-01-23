@@ -51,8 +51,6 @@ export default class Filters extends React.Component {
         } return cardRare === cardFilterRare;
       });
 
-    // console.log(posFilter);
-
     return (
       <section className="grid mx-8">
         <section className="grid col-1 my-10 w-11/12">
