@@ -5,9 +5,9 @@ import Deck from './Deck';
 const styleImput = `p-3 w-80 border-2 border-gray-700 w-full
 bg-white mb-4 text-gray-700 rounded-lg`;
 
-const btnFilter = `py-4 w-4/5 text-center rounded-md bg-blue-600 text-white text-xl
-bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 mx-auto my-6
-hover:to-yellow-500`;
+// const btnFilter = `py-4 w-4/5 text-center rounded-md bg-blue-600 text-white text-xl
+// bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 mx-auto my-6
+// hover:to-yellow-500`;
 
 const initState = {
   cardFilterName: '',
@@ -18,7 +18,7 @@ const initState = {
 export default class Filters extends React.Component {
   constructor() {
     super();
-    this.toFilter = this.toFilter.bind(this);
+    // this.toFilter = this.toFilter.bind(this);
     this.onInputCapture = this.onInputCapture.bind(this);
     this.state = initState;
   }
@@ -31,9 +31,9 @@ export default class Filters extends React.Component {
     }));
   }
 
-  toFilter() {
-    console.log('clicou ni btn filter mais nem precisa desse botão');
-  }
+  // toFilter() {
+  //   console.log('clicou ni btn filter mais nem precisa desse botão');
+  // }
 
   render() {
     const { baseOnState, isDeliteCard } = this.props;
@@ -67,14 +67,12 @@ export default class Filters extends React.Component {
               className={ styleImput }
               id="nameCartFilter"
               name="cardFilterName"
-              data-testid="name-filter"
               onChange={ this.onInputCapture }
             />
             <select
               className={ styleImput }
               placeholder="Raridade"
               name="cardFilterRare"
-              data-testid="rare-filter"
               onChange={ this.onInputCapture }
             >
               <option name="Todos" value="todas">Todos</option>
@@ -92,18 +90,17 @@ export default class Filters extends React.Component {
                 type="checkbox"
                 id="cst"
                 name="cardFilterTrunfo"
-                data-testid="trunfo-filter"
                 onChange={ this.onInputCapture }
                 className="mx-1 w-10 h-4 border-transparent rounded-full"
               />
 
-              <button
+              {/* <button
                 type="button"
                 className={ btnFilter }
                 onClick={ this.toFilter }
               >
                 Filtrar
-              </button>
+              </button> */}
             </section>
           </nav>
 
@@ -129,6 +126,6 @@ export default class Filters extends React.Component {
 }
 
 Filters.propTypes = {
-  baseOnState: PropTypes.string.isRequired,
+  baseOnState: PropTypes.any.isRequired,
   isDeliteCard: PropTypes.func.isRequired,
 };

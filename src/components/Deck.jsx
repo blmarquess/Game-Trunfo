@@ -39,35 +39,32 @@ export default class Deck extends Component {
       <div className="flex-col w-3/7">
         <div className={ container } value={ cardName }>
           <section className={ topCard }>
-            <span
-              className="text-2xl text-right text-white order-2"
-              data-testid="name-card"
-            >
+            <span className="text-2xl text-right text-white order-2">
               { cardName }
             </span>
             <div className="text-xl text-left h-8">
               {cardTrunfo
                 && (
-                  <p data-testid="trunfo-card" className={ superTrunfo }>
+                  <p className={ superTrunfo }>
                     Super Trunfo
                   </p>
                 )}
             </div>
           </section>
           <section className="flex-col w-full h-72 overflow-hidden object-fill ">
-            <img src={ cardImage } alt={ cardName } data-testid="image-card" />
+            <img src={ cardImage } alt={ cardName } />
           </section>
           <section
             className="px-4 py-2 w-full -mt-28 mb-2 bg-green-700
             bg-clip-text transform -skew-y-6 h-18 text-md flex-grow"
           >
-            <p data-testid="description-card">
+            <p>
               { cardDescription }
             </p>
           </section>
           <section className="bg-white -mt-12 rounded-b-xl pt-16 pb-10 h-80">
             <section className="flex justify-end -mt-5 mb-0 mx-7">
-              <span data-testid="rare-card" className={ raridade }>{ cardRare }</span>
+              <span className={ raridade }>{ cardRare }</span>
             </section>
             <section className="mb-4">
               <Attrs
@@ -83,7 +80,6 @@ export default class Deck extends Component {
             id="delete-button"
             className={ excluirBTN }
             onClick={ isDeliteCard }
-            data-testid="delete-button"
             name="delete-button"
             type="button"
             value={ id }

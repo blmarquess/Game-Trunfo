@@ -11,16 +11,16 @@ export default class Attrs extends React.Component {
     return (
       <section id="atributs" className="p-4 text-gray-800 text-2xl">
         <div className={ labelLevel }>
-          <span id="att1">Atributs 01 :</span>
-          <span data-testid="attr1-card" className={ spanNum }>{ cardAttr1 }</span>
+          <span id="att1">Força :</span>
+          <span className={ spanNum }>{ cardAttr1 }</span>
         </div>
         <div className={ labelLevel }>
-          <span id="att2">Atributs 02 :</span>
-          <span data-testid="attr2-card" className={ spanNum }>{ cardAttr2 }</span>
+          <span id="att2">Velocidade :</span>
+          <span className={ spanNum }>{ cardAttr2 }</span>
         </div>
         <div className={ labelLevel }>
-          <span id="att3">Atributs 03 :</span>
-          <span data-testid="attr3-card" className={ spanNum }>{ cardAttr3 }</span>
+          <span id="att3">Destreza :</span>
+          <span className={ spanNum }>{ cardAttr3 }</span>
         </div>
       </section>
     );

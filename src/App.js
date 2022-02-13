@@ -42,7 +42,7 @@ export default class App extends React.Component {
       cardAttr3, cardImage, cardRare, cardTrunfo, dbState,
     } = this.state;
 
-    const id = this.gerarIds(cardName, cardRare);
+    const id = this.gerarIds();
 
     const card = {
       id,
@@ -70,9 +70,8 @@ export default class App extends React.Component {
     }, () => this.HasTrunfoOn());
   }
 
-  gerarIds(a, b) {
-    return (a + b + ((new Date().getTime() / a.length) * Math.random())
-      + b).split(' ').sort().join();
+  gerarIds() {
+    return Math.random(32).toString(18).split('.')[1];
   }
 
   HasTrunfoOn() {

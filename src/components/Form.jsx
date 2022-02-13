@@ -34,7 +34,6 @@ export default class Form extends React.Component {
             id="cardNme"
             name="cardName"
             value={ cardName }
-            data-testid="name-input"
             type="text"
             onChange={ onInputChange }
           />
@@ -47,7 +46,6 @@ export default class Form extends React.Component {
             name="cardDescription"
             value={ cardDescription }
             onChange={ onInputChange }
-            data-testid="description-input"
           />
         </label>
         <label htmlFor="Attr1" className="flex items-center py-2">
@@ -58,7 +56,6 @@ export default class Form extends React.Component {
             name="cardAttr1"
             value={ cardAttr1 }
             onChange={ onInputChange }
-            data-testid="attr1-input"
             type="number"
           />
         </label>
@@ -70,7 +67,6 @@ export default class Form extends React.Component {
             name="cardAttr2"
             value={ cardAttr2 }
             onChange={ onInputChange }
-            data-testid="attr2-input"
             type="number"
           />
         </label>
@@ -82,7 +78,6 @@ export default class Form extends React.Component {
             name="cardAttr3"
             value={ cardAttr3 }
             onChange={ onInputChange }
-            data-testid="attr3-input"
             type="number"
           />
         </label>
@@ -97,7 +92,6 @@ export default class Form extends React.Component {
             name="cardImage"
             value={ cardImage }
             onChange={ onInputChange }
-            data-testid="image-input"
             type="text"
           />
         </label>
@@ -108,7 +102,6 @@ export default class Form extends React.Component {
             id="opt"
             name="cardRare"
             value={ cardRare }
-            data-testid="rare-input"
             onChange={ onInputChange }
           >
             <option value="normal">normal</option>
@@ -129,12 +122,11 @@ export default class Form extends React.Component {
                 id="trunf"
                 name="cardTrunfo"
                 type="checkbox"
-                data-testid="trunfo-input"
                 onChange={ onInputChange }
                 checked={ cardTrunfo }
               />
               <strong>
-                Super Trybe Trunfo:
+                Super Trunfo:
               </strong>
             </label>
           )}
@@ -144,7 +136,6 @@ export default class Form extends React.Component {
             disabled={ isSaveButtonDisabled }
             className={ btnSave }
             onClick={ onSaveButtonClick }
-            data-testid="save-button"
             name="save-button"
             type="button"
             value={ isSaveButtonDisabled }

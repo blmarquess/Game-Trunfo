@@ -26,39 +26,39 @@ export default class Card extends Component {
       <div className={ container }>
         <section className={ topCard }>
           <div className="text-4xl text-left h-8">
-            {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
+            {cardTrunfo && <p>Super Trunfo</p>}
           </div>
-          <span className="text-4xl text-right text-white" data-testid="name-card">
+          <span className="text-4xl text-right text-white">
             { cardName }
           </span>
         </section>
         <section className="flex-col w-full h-96 overflow-hidden object-fill">
-          <img src={ cardImage } alt={ cardName } data-testid="image-card" />
+          <img src={ cardImage } alt={ cardName } />
         </section>
         <section
           className="px-6 py-2 w-full -mt-32 mb-2 mx-0 bg-green-700
           bg-clip-text transform -skew-y-6 h-32 text-md flex-grow"
         >
-          <p data-testid="description-card">
+          <p>
             { cardDescription }
           </p>
         </section>
         <section className="bg-white -mt-16 rounded-b-xl pt-16 pb-10 h-80">
           <section className="flex justify-end -mt-8 px-4 mx-6">
-            <span data-testid="rare-card">{ cardRare }</span>
+            <span>{ cardRare }</span>
           </section>
           <section id="atributs" className="p-4 text-gray-800 text-2xl">
             <div className={ labelLevel }>
-              <span id="att1">Atributs 01 :</span>
-              <span data-testid="attr1-card" className={ spanNum }>{ cardAttr1 }</span>
+              <span id="att1">Força :</span>
+              <span className={ spanNum }>{ cardAttr1 }</span>
             </div>
             <div className={ labelLevel }>
-              <span id="att2">Atributs 02 :</span>
-              <span data-testid="attr2-card" className={ spanNum }>{ cardAttr2 }</span>
+              <span id="att2">Velocidade :</span>
+              <span className={ spanNum }>{ cardAttr2 }</span>
             </div>
             <div className={ labelLevel }>
-              <span id="att3">Atributs 03 :</span>
-              <span data-testid="attr3-card" className={ spanNum }>{ cardAttr3 }</span>
+              <span id="att3">Destreza :</span>
+              <span className={ spanNum }>{ cardAttr3 }</span>
             </div>
           </section>
           <section>
