@@ -82,7 +82,7 @@ export default class Form extends React.Component {
           />
         </label>
         <div className="w-full text-right mb-8">
-          <span>Pontos Restantes = 000 </span>
+          <span>Maximo 90 pontos por atributo e o maximo 240 total</span>
         </div>
         <label htmlFor="cardImg" className="flex items-center py-2 mb-4">
           <strong>Image:</strong>

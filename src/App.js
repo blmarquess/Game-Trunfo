@@ -84,10 +84,10 @@ export default class App extends React.Component {
 
   cardAttrMax() {
     const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
-    const maxPower = 90; const totalPowerMax = 210;
+    const maxPower = 90; const totalPowerMax = 240;
 
     const numValid = [cardAttr1, cardAttr2, cardAttr3]
-      .every((num) => num <= maxPower && num >= 0);
+      .every((num) => num <= maxPower && num > 0);
 
     const totalPower = [cardAttr1, cardAttr2, cardAttr3]
       .reduce((acc, crv) => Number(acc) + Number(crv)) <= totalPowerMax;
