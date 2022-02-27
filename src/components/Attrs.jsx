@@ -9,7 +9,7 @@ export default class Attrs extends React.Component {
   render() {
     const { cardAttr1, cardAttr2, cardAttr3 } = this.props;
     return (
-      <section id="atributs" className="p-4 text-gray-800 text-2xl">
+      <section id="atributs" className="p-4 text-gray-800 2xl:text-xl lg:text-base md:text-sm">
         <div className={ labelLevel }>
           <span id="att1">Força :</span>
           <span className={ spanNum }>{ cardAttr1 }</span>
