@@ -47,7 +47,7 @@ export default class Card extends Component {
           <section className="flex justify-end -mt-8 px-4 mx-6">
             <span>{ cardRare }</span>
           </section>
-          <section id="atributs" className="p-4 text-gray-800 text-2xl">
+          <section id="atributs" className="p-4 text-gray-800 text-gray-800 2xl:text-xl lg:text-base md:text-sm">
             <div className={ labelLevel }>
               <span id="att1">Força :</span>
               <span className={ spanNum }>{ cardAttr1 }</span>
